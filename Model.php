@@ -25,9 +25,9 @@ class Model{
     public function inserir(){
         if (isset($_POST['adicionarProduto'])){
             
-                 $nomeProd = addslashes($_POST['nomeProd']);
-                 $quantidadeProd = addslashes($_POST['quantidadeProd']);
-                 $categoriaProd = addslashes($_POST['categoriaProd']);
+                 $nomeProd = $_POST['nomeProd'];
+                 $quantidadeProd = $_POST['quantidadeProd'];
+                 $categoriaProd = $_POST['categoriaProd'];
                 
                  $queryInserir = "INSERT INTO produto (nomeProd,quantidadeProd,categoriaProd) 
                                   VALUES ('$nomeProd','$quantidadeProd','$categoriaProd')";
