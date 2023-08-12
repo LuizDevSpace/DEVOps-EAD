@@ -40,9 +40,9 @@ class Model{
       public function listar(){
         $data = null;
 
-        $selectQuery = "SELECT * FROM produto";
+        $listarQuery = "SELECT * FROM produto";
 
-        if($executeQuery = $this->conn->query($selectQuery)){
+        if($executeQuery = $this->conn->query($listarQuery)){
             while($rows = mysqli_fetch_assoc($executeQuery )){
                 $data[] = $rows;
             }
