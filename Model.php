@@ -29,7 +29,8 @@ class Model{
                  $quantidadeProd = addslashes($_POST['quantidadeProd']);
                  $categoriaProd = addslashes($_POST['categoriaProd']);
                 
-                 $queryInserir = "INSERT INTO produto (nomeProd,quantidadeProd,categoriaProd) VALUES ('$nomeProd','$quantidadeProd','$categoriaProd')";
+                 $queryInserir = "INSERT INTO produto (nomeProd,quantidadeProd,categoriaProd) 
+                                  VALUES ('$nomeProd','$quantidadeProd','$categoriaProd')";
                  if($executeInserir = $this->conn->query($queryInserir)){
                     echo '<script>alert("Produto cadastrado com Sucesso!")</script>';
                    
