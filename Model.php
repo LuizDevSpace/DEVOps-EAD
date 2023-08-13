@@ -44,8 +44,8 @@ class Model{
         $listarQuery = "SELECT * FROM produto";
 
         if($executaQuery = $this->conn->query($listarQuery)){
-            while($rows = mysqli_fetch_assoc($executaQuery )){
-                $data[] = $rows;
+            while($linha = mysqli_fetch_assoc($executaQuery )){
+                $data[] = $linha;
             }
         }
         return $data;

@@ -36,13 +36,13 @@ $model = new Model();
        $listarProduto = $model->listar();
        
        if(!empty($listarProduto)){
-        foreach($listarProduto as $row){ 
+        foreach($listarProduto as $linha){ 
 ?>
 
   <tr>
-    <td><?php echo $row['nomeProd'] ?></td>
-    <td><?php echo $row['quantidadeProd'] ?></td>
-    <td><?php echo $row['categoriaProd'] ?></td>
+    <td><?php echo $linha['nomeProd'] ?></td>
+    <td><?php echo $linha['quantidadeProd'] ?></td>
+    <td><?php echo $linha['categoriaProd'] ?></td>
   </tr>
 
 <?php
