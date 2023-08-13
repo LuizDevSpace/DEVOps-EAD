@@ -24,19 +24,24 @@ class Model{
 
     public function inserir(){
         if (isset($_POST['adicionarProduto'])){
+            $nomeProd = $_POST['nomeProd'];
+            $quantidadeProd = $_POST['quantidadeProd'];
+            $categoriaProd = $_POST['categoriaProd'];
             
-                 $nomeProd = $_POST['nomeProd'];
-                 $quantidadeProd = $_POST['quantidadeProd'];
-                 $categoriaProd = $_POST['categoriaProd'];
-                
-                 $queryInserir = "INSERT INTO produto (nomeProd,quantidadeProd,categoriaProd) 
-                                  VALUES ('$nomeProd','$quantidadeProd','$categoriaProd')";
-                 if($executeInserir = $this->conn->query($queryInserir)){
-                    echo '<script>alert("Produto cadastrado com Sucesso!")</script>';
-                   
-             }
+            $queryInserir = "INSERT INTO produto (nomeProd, quantidadeProd, categoriaProd) 
+                             VALUES (?, ?, ?)";
+            
+            $stmt = $this->conn->prepare($queryInserir);
+            
+            $stmt->bind_param("sis", $nomeProd, $quantidadeProd, $categoriaProd);
+            
+            if ($stmt->execute()){
+                echo '<script>alert("Produto cadastrado com Sucesso!")</script>';
+            }
+            
+            $stmt->close();
         }
-      }#FIM Inserir Produto
+    }#FIM Inserir Produto
 
       public function listar(){
         $data = null;
