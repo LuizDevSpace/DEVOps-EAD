@@ -11,7 +11,7 @@ $model = new Model();
     <title>Projeto Faculdade Impacta Luiz Otávio</title>
 </head>
 <body>
-<h1>Inserir Produto</h1>
+<h1>Mercadinho da Esquina</h1>
 <form method="POST" action="">
     <?php
     $insert = $model->inserir();

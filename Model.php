@@ -43,16 +43,25 @@ class Model{
         }
     }#FIM Inserir Produto
 
-      public function listar(){
-        $data = null;
-
+    public function listar(){
+        $data = array();
+        
         $listarQuery = "SELECT * FROM produto";
-
-        if($executaQuery = $this->conn->query($listarQuery)){
-            while($linha = mysqli_fetch_assoc($executaQuery )){
-                $data[] = $linha;
+        
+        if ($stmt = $this->conn->prepare($listarQuery)) {
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                while ($linha = $result->fetch_assoc()) {
+                    $data[] = $linha;
+                }
+                $stmt->close();
+            } else {
+               echo "Não foi possível realizar a consulta";
             }
+        } else {
+            "Erro";
         }
+        
         return $data;
-         } #FIM Listar Produto
+    } #FIM Listar Produto
 }
