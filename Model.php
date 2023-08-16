@@ -5,7 +5,7 @@ class Model{
 
 private $servername = "localhost";
 private $username = "root";
-private $password ="";
+private $password;
 private $database = "faculdade";
 private $conn;    
     
