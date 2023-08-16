@@ -17,11 +17,11 @@ $model = new Model();
     $insert = $model->inserir();
     ?>
     <label for="nomeProduto">Nome Produto</label>
-    <input type="text" id="nomeProduto" name="nomeProd">
+    <input type="text" id="nomeProduto" name="nomeProd" required>
     <label for="nomeProduto">Quantidade Produto</label>
-    <input type="number" id="quantidadeProduto" name="quantidadeProd">
+    <input type="number" id="quantidadeProduto" name="quantidadeProd" required>
     <label for="categoriaProduto">Categoria do Produto</label>
-    <select id="categoriaProd" name="categoriaProd">
+    <select id="categoriaProd" name="categoriaProd" required>
     <option name="verdura">Verdura</option>
     <option name="fruta">Fruta </option>
     <option name="legume">Legume</option>
