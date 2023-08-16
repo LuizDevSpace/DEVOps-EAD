@@ -1,16 +1,10 @@
-FAZER  UM CRUD
+OBJETIVO DO PROJETO
 
-PRIMEIRA ETAPA
- CADASTRO - COM SELECT EXIBINDO PRODUTOS
+1-Cadastrar um novo produto   e listar os produtos já cadastrados
+2-Ver um produto
+3-Listar os produtos  por categoria
+4-Excluir um produto
 
-SEGUNDA ETAPA
-EDITAR PRODUTO
-
-TERCEIRA ETAPA
-DELETAR PDORUTO
-
-QUARTA ETAPA 
-SELECIONAR PRODUTOS POR CATEGORIA 
 
 CRIAR  
 Diagrama de Classes e Modelo de Dados
