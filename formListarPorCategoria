@@ -1,0 +1,22 @@
+<form method="POST" action="listarProduto.php">
+<select id="categoria" name="categoria">
+<?php 
+       $model = new Model();
+       $listarProduto = $model->listar();
+      
+       if(!empty($listarProduto)){
+        foreach($listarProduto as $linha){ 
+?>
+
+<option name="categoria" value="<?php echo $linha['categoriaProd'] ?>"><?php echo $linha['categoriaProd'] ?></option>
+
+
+
+
+<?php
+    }
+}
+?> 
+<input type="submit" name="listarPorCategoria" value="Listar Produtos">
+</select>
+</form>

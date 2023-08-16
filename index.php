@@ -20,8 +20,13 @@ $model = new Model();
     <input type="text" id="nomeProduto" name="nomeProd">
     <label for="nomeProduto">Quantidade Produto</label>
     <input type="number" id="quantidadeProduto" name="quantidadeProd">
-    <label for="descricaoProduto">Categoria do Produto</label>
-    <input type="text" id="categoriaProduto" name="categoriaProd">
+    <label for="categoriaProduto">Categoria do Produto</label>
+    <select id="categoriaProd" name="categoriaProd">
+    <option name="verdura">Verdura</option>
+    <option name="fruta">Fruta </option>
+    <option name="legume">Legume</option>
+    <option name="frios">Frios</option>  
+  </select>
     <input type="submit" id="adicionarProduto" name="adicionarProduto" value="Cadastrar Produto">
 </form>
 
@@ -30,6 +35,8 @@ $model = new Model();
     <th>Nome</th>
     <th>Quantidade</th>
     <th>Categoria</th>
+    <th></th>
+    <th></th>
   </tr>
 <?php 
        $model = new Model();
@@ -40,9 +47,10 @@ $model = new Model();
 ?>
 
   <tr>
-    <td><?php echo $linha['nomeProd'] ?></td>
-    <td><?php echo $linha['quantidadeProd'] ?></td>
-    <td><?php echo $linha['categoriaProd'] ?></td>
+    <td><?php echo $linha['nomeProd']; ?></td>
+    <td><?php echo $linha['quantidadeProd']; ?></td>
+    <td><?php echo $linha['categoriaProd']; ?></td>
+    
   </tr>
 
 <?php
@@ -50,6 +58,7 @@ $model = new Model();
 }
 ?> 
 </table>
+
 
 </body>
 </html>

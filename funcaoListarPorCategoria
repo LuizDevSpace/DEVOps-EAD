@@ -1,0 +1,25 @@
+   public function listarProdutoPorCategoria(){
+        if(isset($_POST['listarPorCategoria'])){
+            $categoria = $_POST['categoria'];
+            $data = array();
+        
+            $listarQuery = "SELECT * FROM produto WHERE categoriaProd = ?";
+        
+            if ($stmt = $this->conn->prepare($listarQuery)) {
+                $stmt->bind_param("s", $categoria); 
+                if ($stmt->execute()) {
+                    $result = $stmt->get_result();
+                    while ($linha = $result->fetch_assoc()) {
+                        $data[] = $linha;
+                    }
+                    $stmt->close();
+                } else {
+                   echo "Não foi possível realizar a consulta";
+                }
+            } else {
+                echo "Erro na preparação da consulta";
+            }
+        
+            return $data;
+        }
+    }
