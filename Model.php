@@ -2,13 +2,7 @@
 
 class Model{
 
-/*  
-    private $servername = "localhost";
-    private $username = "lu181613_projetofaculdade";
-    private $password ="g77wsf7k";
-    private $database = "lu181613_projetofaculdade";
-    private $conn;
-*/
+
 private $servername = "localhost";
 private $username = "root";
 private $password ="";
