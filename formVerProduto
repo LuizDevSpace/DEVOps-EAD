@@ -1,6 +1,0 @@
-<td>
-      <form method="GET" action="produto.php">
-      <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
-      <input type="submit" value="Ver Produro">
-        </form>
-    </td>
