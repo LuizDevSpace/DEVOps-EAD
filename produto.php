@@ -37,6 +37,7 @@ $model = new Model();
 }
 ?> 
 </table>
+<a href="index.php"> VOLTAR </a>
 
 </body>
 </html>

@@ -9,6 +9,12 @@ $model = new Model();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Faculdade Impacta Luiz Otávio</title>
+    <style>
+      .error-border {
+            border: 1px solid red;
+        }
+    </style>
+
 </head>
 <body>
 <h1>Mercadinho da Esquina</h1>
@@ -50,6 +56,12 @@ $model = new Model();
     <td><?php echo $linha['nomeProd']; ?></td>
     <td><?php echo $linha['quantidadeProd']; ?></td>
     <td><?php echo $linha['categoriaProd']; ?></td>
+    <td>
+      <form method="GET" action="produto.php">
+      <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
+      <input type="submit" value="Ver Produro">
+        </form>
+</td>
     
   </tr>
 
@@ -58,7 +70,6 @@ $model = new Model();
 }
 ?> 
 </table>
-
 
 </body>
 </html>
