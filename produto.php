@@ -1,5 +1,5 @@
 <?php
-include "Model.php";
+include_once "Model.php";
 $model = new Model();
 ?>
 <!DOCTYPE html>
@@ -25,8 +25,6 @@ $model = new Model();
     <th>Nome</th>
     <th>Quantidade</th>
     <th>Categoria</th>
-    <th></th>
-    <th></th>
   </tr>
 <?php 
        $model = new Model();
