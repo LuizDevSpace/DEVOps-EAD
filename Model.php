@@ -25,7 +25,7 @@ class Model {
             $categoriaProd = filter_input(INPUT_POST, 'categoriaProd', FILTER_SANITIZE_SPECIAL_CHARS);
             $diretorio = "uploads/";
     
-            // Gerar um nome de arquivo único
+            
             $fileName = md5(uniqid()) . "_" . $_FILES["imagem"]["name"];
             $upload = $diretorio . $fileName;
     
