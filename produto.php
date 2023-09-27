@@ -22,6 +22,7 @@ $model = new Model();
 
 <table>
   <tr>
+    <th></th>
     <th>Nome</th>
     <th>Quantidade</th>
     <th>Categoria</th>
@@ -35,10 +36,15 @@ $model = new Model();
 ?>
 
   <tr>
+    <td>
+    <?php echo "<img src='uploads/{$linha['imagem']}' style='width:100px; height:100px;'>"; ?>
+    </td>
     <td><?php echo $linha['nomeProd']; ?></td>
-    <td><?php echo $linha['quantidadeProd']; ?></td>
+    <td style="text-align:center;"><?php echo $linha['quantidadeProd']; ?></td>
     <td><?php echo $linha['categoriaProd']; ?></td>
-    
+     <td>
+       <a href="index.php"  style=" height:15px;  font-size:15px; color:black; text-decoration:none; border-radius:3px; background-color:#E9E9E9; border:1px solid #000; padding:5px;" title="Voltar">Voltar</a>
+     </td>
   </tr>
 
 <?php
@@ -46,7 +52,7 @@ $model = new Model();
 }
 ?> 
 </table>
-<a href="index.php" title="VOLTAR">VOLTAR</a>
+
 
 </body>
 </html>

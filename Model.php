@@ -2,6 +2,7 @@
 
 
 class Model {
+    
     private $servername = "localhost";
     private $username = "root";
     private $password;
@@ -22,24 +23,34 @@ class Model {
             $nomeProd = filter_input(INPUT_POST, 'nomeProd', FILTER_SANITIZE_SPECIAL_CHARS);
             $quantidadeProd = filter_input(INPUT_POST, 'quantidadeProd', FILTER_VALIDATE_INT);
             $categoriaProd = filter_input(INPUT_POST, 'categoriaProd', FILTER_SANITIZE_SPECIAL_CHARS);
-
-            $queryInserir = "INSERT INTO produto (nomeProd, quantidadeProd, categoriaProd) 
-                             VALUES (:nomeProd, :quantidadeProd, :categoriaProd)";
-            
-            try {
-                $stmt = $this->conn->prepare($queryInserir);
-                $stmt->bindParam(':nomeProd', $nomeProd, PDO::PARAM_STR);
-                $stmt->bindParam(':quantidadeProd', $quantidadeProd, PDO::PARAM_INT);
-                $stmt->bindParam(':categoriaProd', $categoriaProd, PDO::PARAM_STR);
-
-                if ($stmt->execute()) {
-                    echo '<script>alert("Produto cadastrado com Sucesso!")</script>';
+            $diretorio = "uploads/";
+    
+            // Gerar um nome de arquivo único
+            $fileName = md5(uniqid()) . "_" . $_FILES["imagem"]["name"];
+            $upload = $diretorio . $fileName;
+    
+            $queryInserir = "INSERT INTO produto (nomeProd, quantidadeProd, categoriaProd, imagem) 
+                             VALUES (:nomeProd, :quantidadeProd, :categoriaProd, :fileName)";
+            if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $upload)) {
+                try {
+                    $stmt = $this->conn->prepare($queryInserir);
+                    $stmt->bindParam(':nomeProd', $nomeProd, PDO::PARAM_STR);
+                    $stmt->bindParam(':quantidadeProd', $quantidadeProd, PDO::PARAM_INT);
+                    $stmt->bindParam(':categoriaProd', $categoriaProd, PDO::PARAM_STR);
+                    $stmt->bindParam(':fileName', $fileName, PDO::PARAM_STR);
+                    if ($stmt->execute()) {
+                        echo '<script>alert("Produto cadastrado com Sucesso!")</script>';
+                    }
+                } catch (PDOException $e) {
+                    echo "Erro ao inserir produto: " . $e->getMessage();
                 }
-            } catch (PDOException $e) {
-                echo "Erro ao inserir produto: " . $e->getMessage();
+            } else {
+                echo "Erro ao fazer upload do arquivo.";
             }
         }
     }
+    
+
 
     public function listar() {
         $data = array();
@@ -84,4 +95,6 @@ class Model {
             return $data;
         }
     }
+
+
 }

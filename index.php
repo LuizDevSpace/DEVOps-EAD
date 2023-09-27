@@ -9,16 +9,11 @@ $model = new Model();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Faculdade Impacta Luiz Otávio</title>
-    <style>
-      .error-border {
-            border: 1px solid red;
-        }
-    </style>
 
 </head>
 <body>
 <h1>Mercadinho da Esquina</h1>
-<form method="POST" action="">
+<form method="POST" action="" enctype="multipart/form-data">
     <?php
     $insert = $model->inserir();
     ?>
@@ -28,11 +23,13 @@ $model = new Model();
     <input type="number" id="quantidadeProduto" name="quantidadeProd" required>
     <label for="categoriaProduto">Categoria do Produto</label>
     <select id="categoriaProd" name="categoriaProd" required>
-    <option name="verdura">Verdura</option>
-    <option name="fruta">Fruta </option>
-    <option name="legume">Legume</option>
-    <option name="frios">Frios</option>  
-  </select>
+      <option name="verdura">Verdura</option>
+      <option name="fruta">Fruta </option>
+      <option name="legume">Legume</option>
+      <option name="frios">Frios</option>  
+     </select>
+     <label for="image">Imagem</label>
+     <input type="file" name="imagem" required>
     <input type="submit" id="adicionarProduto" name="adicionarProduto" value="Cadastrar Produto">
 </form>
 
@@ -41,8 +38,7 @@ $model = new Model();
     <th>Nome</th>
     <th>Quantidade</th>
     <th>Categoria</th>
-    <th></th>
-    <th></th>
+
   </tr>
 <?php 
        $model = new Model();
@@ -61,14 +57,29 @@ $model = new Model();
       <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
       <input type="submit" value="Ver Produro">
         </form>
-</td>
-    
-  </tr>
-
+    </td>
+   </tr>
 <?php
     }
 }
 ?> 
+
+<!--
+   <tr>
+    <form method="POST" action="produtoFiltro.php">
+
+      <select name="categoriaProd">
+        <option name="categoriaProd" value="Fruta">Fruta</option>
+        <option name="categoriaProd" value="Verdura">Verdura</option>
+        <option name="categoriaProd" value="Legume">Legumes</option>
+        <option name="categoriaProd" value="F">Frios</option>
+      </select>
+
+      <input type="submit" name="listarPorCategoria" value="PROCURAR">
+      </form>
+   </tr>
+
+-->
 </table>
 
 </body>
