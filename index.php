@@ -64,22 +64,6 @@ $model = new Model();
 }
 ?> 
 
-<!--
-   <tr>
-    <form method="POST" action="produtoFiltro.php">
-
-      <select name="categoriaProd">
-        <option name="categoriaProd" value="Fruta">Fruta</option>
-        <option name="categoriaProd" value="Verdura">Verdura</option>
-        <option name="categoriaProd" value="Legume">Legumes</option>
-        <option name="categoriaProd" value="F">Frios</option>
-      </select>
-
-      <input type="submit" name="listarPorCategoria" value="PROCURAR">
-      </form>
-   </tr>
-
--->
 </table>
 
 </body>
