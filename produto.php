@@ -9,12 +9,7 @@ $model = new Model();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Faculdade Impacta Luiz Otávio</title>
-    <style>
-      .error-border {
-            border: 1px solid red;
-        }
-    </style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <h1>Mercadinho da Esquina</h1>
@@ -37,13 +32,13 @@ $model = new Model();
 
   <tr>
     <td>
-    <?php echo "<img src='uploads/{$linha['imagem']}' style='width:100px; height:100px;'>"; ?>
+    <?php echo "<img src='uploads/{$linha['imagemProd']}' style='width:100px; height:100px;'>"; ?>
     </td>
     <td><?php echo $linha['nomeProd']; ?></td>
     <td style="text-align:center;"><?php echo $linha['quantidadeProd']; ?></td>
     <td><?php echo $linha['categoriaProd']; ?></td>
      <td>
-       <a href="index.php"  style=" height:15px;  font-size:15px; color:black; text-decoration:none; border-radius:3px; background-color:#E9E9E9; border:1px solid #000; padding:5px;" title="Voltar">Voltar</a>
+       <a href="index.php" title="Voltar">Voltar</a>
      </td>
   </tr>
 

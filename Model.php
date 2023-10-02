@@ -23,21 +23,20 @@ class Model {
             $nomeProd = filter_input(INPUT_POST, 'nomeProd', FILTER_SANITIZE_SPECIAL_CHARS);
             $quantidadeProd = filter_input(INPUT_POST, 'quantidadeProd', FILTER_VALIDATE_INT);
             $categoriaProd = filter_input(INPUT_POST, 'categoriaProd', FILTER_SANITIZE_SPECIAL_CHARS);
+            $imagemProd = filter_var(md5(uniqid()) . "_" . $_FILES["imagem"]["name"], FILTER_SANITIZE_SPECIAL_CHARS);
+
             $diretorio = "uploads/";
+            $upload = $diretorio . $imagemProd;
     
-            
-            $fileName = md5(uniqid()) . "_" . $_FILES["imagem"]["name"];
-            $upload = $diretorio . $fileName;
-    
-            $queryInserir = "INSERT INTO produto (nomeProd, quantidadeProd, categoriaProd, imagem) 
-                             VALUES (:nomeProd, :quantidadeProd, :categoriaProd, :fileName)";
+            $queryInserir = "INSERT INTO produto (nomeProd, quantidadeProd, categoriaProd, imagemProd) 
+                             VALUES (:nomeProd, :quantidadeProd, :categoriaProd, :imagemProd)";
             if (move_uploaded_file($_FILES["imagem"]["tmp_name"], $upload)) {
                 try {
                     $stmt = $this->conn->prepare($queryInserir);
                     $stmt->bindParam(':nomeProd', $nomeProd, PDO::PARAM_STR);
                     $stmt->bindParam(':quantidadeProd', $quantidadeProd, PDO::PARAM_INT);
                     $stmt->bindParam(':categoriaProd', $categoriaProd, PDO::PARAM_STR);
-                    $stmt->bindParam(':fileName', $fileName, PDO::PARAM_STR);
+                    $stmt->bindParam(':imagemProd', $imagemProd, PDO::PARAM_STR);
                     if ($stmt->execute()) {
                         echo '<script>alert("Produto cadastrado com Sucesso!")</script>';
                     }
