@@ -42,7 +42,6 @@ $model = new Model();
 
   </tr>
 <?php 
-       $model = new Model();
        $listarProduto = $model->listar();
        
        if(!empty($listarProduto)){
