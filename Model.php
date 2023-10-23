@@ -96,4 +96,31 @@ class Model {
     }
 
 
+    public function porCategoria() {
+        if (isset($_POST['listarPorCategoria'])) {
+            $categoriaProd = filter_input(INPUT_POST, 'categoriaProd', FILTER_SANITIZE_SPECIAL_CHARS);
+            $data = array();
+            $porCategoria = "SELECT * FROM produto WHERE categoriaProd = :categoriaProd";
+
+            try {
+                $stmt = $this->conn->prepare($porCategoria);
+                $stmt->bindParam(':categoriaProd', $categoriaProd, PDO::PARAM_STR);
+
+                if ($stmt->execute()) {
+                    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (empty($data)) {
+                        header("Location: index.php");
+                        exit();
+                    }
+                } else {
+                    echo "Não foi possível realizar a consulta!";
+                }
+            } catch (PDOException $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+            return $data;
+        }
+    }
+
+
 }

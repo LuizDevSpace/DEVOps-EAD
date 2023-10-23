@@ -41,6 +41,19 @@ $model = new Model();
     <th>Categoria</th>
 
   </tr>
+  <tr>
+    <form method="POST" action="porCategoria.php">
+
+      <select name="categoriaProd">
+        <option name="categoriaProd" value="Fruta">Fruta</option>
+        <option name="categoriaProd" value="Verdura">Verdura</option>
+        <option name="categoriaProd" value="Legume">Legumes</option>
+        <option name="categoriaProd" value="Frios">Frios</option>
+      </select>
+
+      <input type="submit" name="listarPorCategoria" value="PROCURAR">
+      </form>
+   </tr>
 <?php 
        $listarProduto = $model->listar();
        
