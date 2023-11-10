@@ -133,8 +133,7 @@ class Model {
                 $stmt = $this->conn->prepare($excluirProduto);
                 $stmt->bindParam(':produtoExcluir', $produtoExcluir);
                 if ($stmt->execute()) {
-                    header("Location:index.php");
-                    exit();
+                    echo "<script>alert('Produto excluído com sucesso!'); window.location='index.php';</script>";
                 } else {
                     echo "Não foi possível excluir o produto";
                 }
