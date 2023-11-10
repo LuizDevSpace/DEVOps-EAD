@@ -123,4 +123,27 @@ class Model {
     }
 
 
+    public function excluirProduto(){
+        if(isset($_POST['produtoExcluir'])){ 
+            $produtoExcluir = filter_input(INPUT_POST, 'produtoExcluir', FILTER_VALIDATE_INT);
+            
+            $excluirProduto = "DELETE FROM produto WHERE id = :produtoExcluir"; // Alterado o nome do parâmetro
+    
+            try {
+                $stmt = $this->conn->prepare($excluirProduto);
+                $stmt->bindParam(':produtoExcluir', $produtoExcluir);
+                if ($stmt->execute()) {
+                    header("Location:index.php");
+                    exit();
+                } else {
+                    echo "Não foi possível excluir o produto";
+                }
+            } catch (PDOException $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+    }
+    
+
+
 }

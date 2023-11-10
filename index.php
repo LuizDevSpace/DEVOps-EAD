@@ -68,7 +68,18 @@ $model = new Model();
     <td>
       <form method="GET" action="produto.php">
       <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
-      <input type="submit" value="Ver Produro">
+      <input type="submit" value="Ver Produto">
+        </form>
+    </td>
+    <td>
+      <form method="POST" action="">
+        <?php
+
+          $excluirProduto = $model->excluirProduto();
+
+        ?>
+      <input type="hidden" name="produtoExcluir" value="<?php echo $linha['id']; ?>">
+      <input type="submit" value="Excluir Produto">
         </form>
     </td>
    </tr>
